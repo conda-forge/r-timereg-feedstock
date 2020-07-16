@@ -5,7 +5,7 @@ Home: https://github.com/scheike/timereg.git
 
 Package license: GPL (>= 2)
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Programs for Martinussen and Scheike (2006), `Dynamic Regression Models for Survival Data', Springer Verlag.  Plus more recent developments. Additive survival model, semiparametric proportional odds model, fast cumulative residuals, excess risk models and more. Flexible competing risks regression including GOF-tests. Two-stage frailty modelling. PLS for the additive risk model. Lasso in the 'ahaz' package.
 
