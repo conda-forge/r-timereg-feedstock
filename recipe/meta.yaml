@@ -1,4 +1,4 @@
-{% set version = "1.9.6" %}
+{% set version = "1.9.7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/timereg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/timereg/timereg_{{ version }}.tar.gz
-  sha256: 043e3306f875363c16341141e544c026ea3dc2e9d2144bb07f9f5b3f4575f134
+  sha256: b6aacf1ac2fec85b29d1661c550e32b5927c2a408cff37b7d76444e59154c1a4
 
 build:
   merge_build_host: true  # [win]
   number: 0
-  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -49,11 +48,12 @@ test:
 
 about:
   home: https://github.com/scheike/timereg.git
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Programs for Martinussen and Scheike (2006), `Dynamic Regression Models for Survival Data', Springer Verlag.  Plus more recent developments. Additive survival model, semiparametric proportional odds model, fast cumulative residuals, excess risk models and more. Flexible competing risks regression including GOF-tests.
     Two-stage frailty modelling. PLS for the additive risk model. Lasso in the 'ahaz' package.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
