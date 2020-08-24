@@ -3,7 +3,7 @@ About r-timereg
 
 Home: https://github.com/scheike/timereg.git
 
-Package license: GPL (>= 2)
+Package license: GPL-2.0-or-later
 
 Feedstock license: BSD-3-Clause
 
