@@ -34,6 +34,7 @@ requirements:
     - r-numderiv
     - r-survival
     - libblas
+    - liblapack
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
