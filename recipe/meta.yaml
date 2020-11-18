@@ -1,4 +1,4 @@
-{% set version = "1.9.8" %}
+{% set version = '1.9.8' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,22 +7,21 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: timereg_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/timereg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/timereg/timereg_{{ version }}.tar.gz
   sha256: 00b200764743e7074d1697ddbe8534ca7599e26ef20c34020fa1f6a29fa6bb18
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
@@ -34,6 +33,7 @@ requirements:
     - r-lava
     - r-numderiv
     - r-survival
+    - libblas
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
@@ -47,14 +47,37 @@ test:
     - "\"%R%\" -e \"library('timereg')\""  # [win]
 
 about:
-  home: https://github.com/scheike/timereg.git
+  home: https://github.com/scheike/timereg
   license: GPL-2.0-or-later
-  summary: Programs for Martinussen and Scheike (2006), `Dynamic Regression Models for Survival Data', Springer Verlag.  Plus more recent developments. Additive survival model, semiparametric proportional odds model, fast cumulative residuals, excess risk models and more. Flexible competing risks regression including GOF-tests.
-    Two-stage frailty modelling. PLS for the additive risk model. Lasso in the 'ahaz' package.
-  license_family: GPL3
+  summary: Programs for Martinussen and Scheike (2006), `Dynamic Regression Models for Survival
+    Data', Springer Verlag.  Plus more recent developments. Additive survival model,
+    semiparametric proportional odds model, fast cumulative residuals, excess risk models
+    and more. Flexible competing risks regression including GOF-tests. Two-stage frailty
+    modelling. PLS for the additive risk model. Lasso in the 'ahaz' package.
+  license_family: GPL2
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
+
+# Package: timereg
+# Title: Flexible Regression Models for Survival Data
+# Version: 1.9.8
+# Date: 2020-09-21
+# Author: Thomas Scheike with contributions from Torben Martinussen, Jeremy Silver and Klaus Holst
+# Maintainer: Thomas Scheike <ts@biostat.ku.dk>
+# Description: Programs for Martinussen and Scheike (2006), `Dynamic Regression Models for Survival Data', Springer Verlag.  Plus more recent developments. Additive survival model, semiparametric proportional odds model, fast cumulative residuals, excess risk models and more. Flexible competing risks regression including GOF-tests. Two-stage frailty modelling. PLS for the additive risk model. Lasso in the 'ahaz' package.
+# LazyLoad: yes
+# URL: https://github.com/scheike/timereg
+# Depends: R (>= 2.15), survival
+# Imports: lava, numDeriv, stats, graphics, grDevices, utils, methods
+# Suggests: mets,
+# License: GPL (>= 2)
+# Encoding: UTF-8
+# RoxygenNote: 7.1.0
+# NeedsCompilation: yes
+# Packaged: 2020-09-21 06:40:29 UTC; bhd252
+# Repository: CRAN
+# Date/Publication: 2020-10-05 09:50:02 UTC
