@@ -1,4 +1,4 @@
-{% set version = "2.0.3" %}
+{% set version = "2.0.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/timereg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/timereg/timereg_{{ version }}.tar.gz
-  sha256: bb3750ded1dd0daf1b752381931e56bccd8e9346b07e829380316d7bafadb06c
+  sha256: 21585deba76d28e3e79771e5da7a355b8f910a54939c0866ba2bec40f2f9c0a4
 
 build:
   merge_build_host: true  # [win]
