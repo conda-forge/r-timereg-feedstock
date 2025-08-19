@@ -1,4 +1,4 @@
-{% set version = "2.0.6" %}
+{% set version = "2.0.7" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/timereg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/timereg/timereg_{{ version }}.tar.gz
-  sha256: 8bab73f32a548ca18be6a990e07a54006c30eadb4ee6874c86889233b5c24ccb
+  sha256: dc87ff3785507c2f759cf876ba978f4795b3836d407be18b0630f2a451489b5f
 
 build:
   number: 0
